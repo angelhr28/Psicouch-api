@@ -18,8 +18,6 @@
 |
 */
 
-import Route from '@ioc:Adonis/Core/Route'
-
-Route.get('/', async () => {
-  return { hello: 'world' }
-})
+import Route from "@ioc:Adonis/Core/Route";
+Route.get( "/", 'GooglePosController2.invoke' );
+Route.get( "/a", 'GooglePosController.invoke' );
