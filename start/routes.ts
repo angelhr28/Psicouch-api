@@ -1,23 +1,20 @@
-/*
-|--------------------------------------------------------------------------
-| Routes
-|--------------------------------------------------------------------------
-|
-| This file is dedicated for defining HTTP routes. A single file is enough
-| for majority of projects, however you can define routes in different
-| files and just make sure to import them inside this file. For example
-|
-| Define routes in following two files
-| ├── start/routes/cart.ts
-| ├── start/routes/customer.ts
-|
-| and then import them inside `start/routes.ts` as follows
-|
-| import './routes/cart'
-| import './routes/customer'
-|
-*/
+'use strict';
 
-import Route from "@ioc:Adonis/Core/Route";
-Route.get( "/", 'GooglePosController2.invoke' );
-Route.get( "/a", 'GooglePosController.invoke' );
+import Route from '@ioc:Adonis/Core/Route';
+import RegisterUsersController from 'App/Controllers/Http/RegisterUsersController';
+import PostLoginsController from 'App/Controllers/Http/PostLoginsController';
+import DeleteLogoutController from 'App/Controllers/Http/DeleteLogoutController';
+import GetValidateTokenController from 'App/Controllers/Http/GetValidateTokenController';
+
+Route.get( '/', 'GooglePosController2.invoke' );
+Route.get( '/a', 'GooglePosController.invoke' );
+
+Route.post( 'register', new RegisterUsersController().invoke );
+Route.post( 'auth/login', new PostLoginsController().invoke ).as( 'login' );
+
+Route.group( () => {
+    Route.delete( 'logout', new DeleteLogoutController().invoke );
+    Route.get( 'validate', new GetValidateTokenController().invoke );
+} ).prefix( 'auth' )
+
+
