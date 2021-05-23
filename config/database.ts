@@ -41,7 +41,7 @@ const databaseConfig: DatabaseConfig & { orm: Partial<OrmConfig> } = {
             client: 'mysql',
             connection: {
                 host: Env.get( 'MYSQL_HOST', CLEARDB_DATABASE_URL.host ),
-                port: Env.get( 'MYSQL_PORT', '' ),
+                port: Number(''),
                 user: Env.get( 'MYSQL_USER', CLEARDB_DATABASE_URL.username ),
                 password: Env.get( 'MYSQL_PASSWORD', CLEARDB_DATABASE_URL.host.password ),
                 database: Env.get( 'MYSQL_DB_NAME', CLEARDB_DATABASE_URL.pathname.substr( 1 ) ),
