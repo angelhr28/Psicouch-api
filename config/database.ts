@@ -40,11 +40,11 @@ const databaseConfig: DatabaseConfig & { orm: Partial<OrmConfig> } = {
         mysql: {
             client: 'mysql',
             connection: {
-                host: Env.get( 'MYSQL_HOST', DATABASE_URL.hostname ),
+                host: Env.get( 'MYSQL_HOST', DATABASE_URL.hostname as string ),
                 port: Env.get( 'MYSQL_PORT', DATABASE_URL.port ),
-                user: Env.get( 'MYSQL_USER', DATABASE_URL.username ),
-                password: Env.get( 'MYSQL_PASSWORD', DATABASE_URL.host.password ),
-                database: Env.get( 'MYSQL_DB_NAME', DATABASE_URL.pathname.substr( 1 ) ),
+                user: Env.get( 'MYSQL_USER', DATABASE_URL.username as string),
+                password: Env.get( 'MYSQL_PASSWORD', DATABASE_URL.password as string),
+                database: Env.get( 'MYSQL_DB_NAME', DATABASE_URL.pathname.substr( 1 ) as string),
             },
             healthCheck: false,
             debug: false,
