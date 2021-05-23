@@ -10,7 +10,7 @@ import { OrmConfig } from '@ioc:Adonis/Lucid/Orm';
 import { DatabaseConfig } from '@ioc:Adonis/Lucid/Database';
 import Url from 'url-parse';
 
-const CLEARDB_DATABASE_URL = new Url( Env.get( 'CLEARDB_DATABASE_URL' ) );
+const DATABASE_URL = new Url( Env.get( 'DATABASE_URL' ) );
 
 const databaseConfig: DatabaseConfig & { orm: Partial<OrmConfig> } = {
     /*
@@ -40,11 +40,11 @@ const databaseConfig: DatabaseConfig & { orm: Partial<OrmConfig> } = {
         mysql: {
             client: 'mysql',
             connection: {
-                host: Env.get( 'MYSQL_HOST', CLEARDB_DATABASE_URL.host ),
-                port: Number(''),
-                user: Env.get( 'MYSQL_USER', CLEARDB_DATABASE_URL.username ),
-                password: Env.get( 'MYSQL_PASSWORD', CLEARDB_DATABASE_URL.host.password ),
-                database: Env.get( 'MYSQL_DB_NAME', CLEARDB_DATABASE_URL.pathname.substr( 1 ) ),
+                host: Env.get( 'MYSQL_HOST', DATABASE_URL.hostname ),
+                port: Env.get( 'MYSQL_PORT', DATABASE_URL.port ),
+                user: Env.get( 'MYSQL_USER', DATABASE_URL.username ),
+                password: Env.get( 'MYSQL_PASSWORD', DATABASE_URL.host.password ),
+                database: Env.get( 'MYSQL_DB_NAME', DATABASE_URL.pathname.substr( 1 ) ),
             },
             healthCheck: false,
             debug: false,
