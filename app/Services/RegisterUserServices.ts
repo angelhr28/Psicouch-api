@@ -13,9 +13,11 @@ export class RegisterUserServices {
     constructor(
         password: string,
         email: string,
+        name?: string|null,
         roleId?: Roles|null,
     ) {
-        console.log(roleId)
+        const random = Math.floor(Math.random()*(999-100+1)+100);
+        this.name = name ? name : `Usuario ${random}`;
         this.roleId = roleId ? roleId : Roles.CLIENT;
         this.email = email;
         this.password = password;

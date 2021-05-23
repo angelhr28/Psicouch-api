@@ -45,12 +45,15 @@ export default class AuthMiddleware {
         return true
       }
     }
-
+    
+    await auth.use('api').revoke()
+    
     /**
      * Unable to authenticate using any guard
      */
+    
     throw new AuthenticationException(
-      'Unauthorized access',
+      'Token expirado',
       'E_UNAUTHORIZED_ACCESS',
       guardLastAttempted,
       this.redirectTo,

@@ -21,11 +21,11 @@ export default class RegisterUserValidator {
             rules.maxLength( 255 ),
         ] ),
         
-        surname: schema.string.optional( {
-            trim: true,
-        }, [
-            rules.maxLength( 255 ),
-        ] ),
+        // surname: schema.string.optional( {
+        //     trim: true,
+        // }, [
+        //     rules.maxLength( 255 ),
+        // ] ),
         
         email: schema.string( {
             trim: true,
@@ -34,11 +34,11 @@ export default class RegisterUserValidator {
             rules.maxLength( 255 ),
         ] ),
         
-        phone: schema.string.optional( {
-            trim: true,
-        }, [
-            rules.maxLength( 255 ),
-        ] ),
+        // phone: schema.string.optional( {
+        //     trim: true,
+        // }, [
+        //     rules.maxLength( 255 ),
+        // ] ),
         
         password: schema.string( {
             trim: true,
@@ -47,12 +47,12 @@ export default class RegisterUserValidator {
             rules.maxLength( 20 ),
         ] ),
         
-        document_number: schema.string.optional( {
-            trim: true,
-        }, [
-            rules.regex( /[0-9]{8}$/ ),
-        ] ),
-        
+        // document_number: schema.string.optional( {
+        //     trim: true,
+        // }, [
+        //     rules.regex( /[0-9]{8}$/ ),
+        // ] ),
+        //
     } );
     
     public messages = {

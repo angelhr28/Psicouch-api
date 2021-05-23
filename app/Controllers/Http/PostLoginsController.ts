@@ -13,9 +13,8 @@ export default class PostLoginsController {
         const data = await request.validate( SignInValidator );
         const email = data.email;
         const password = data.password;
-        const rememberMe = data.remember_me ?? false;
         
-        const service = new LoginServices( rememberMe, email, password, auth );
+        const service = new LoginServices( email, password, auth );
         const result = await service.login();
         
         return result ?? response.unauthorized( { message: Error.INVALID_CREDENTIALS } );
