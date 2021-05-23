@@ -6,7 +6,10 @@ import PostLoginsController from 'App/Controllers/Http/PostLoginsController';
 import DeleteLogoutController from 'App/Controllers/Http/DeleteLogoutController';
 import GetValidateTokenController from 'App/Controllers/Http/GetValidateTokenController';
 
-Route.get( '/', 'GooglePosController2.invoke' );
+Route.get( '/', () => {
+    return { message: 'hello word' };
+} );
+Route.get( '/js', 'GooglePosController2.invoke' );
 Route.get( '/a', 'GooglePosController.invoke' );
 
 Route.post( 'register', new RegisterUsersController().invoke );
