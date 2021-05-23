@@ -15,6 +15,6 @@ Route.post( 'auth/login', new PostLoginsController().invoke ).as( 'login' );
 Route.group( () => {
     Route.delete( 'logout', new DeleteLogoutController().invoke );
     Route.get( 'validate', new GetValidateTokenController().invoke );
-} ).prefix( 'auth' ).middleware('auth')
+} ).prefix( 'auth' ).middleware( 'auth' );
 
 
