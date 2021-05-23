@@ -16,7 +16,6 @@ export class LoginServices {
         try {
             return await this.auth.use( 'api' ).attempt( this.email, this.password, { expiresIn: '180mins' } );
         } catch (e) {
-            console.log( e );
             return null;
         }
     }

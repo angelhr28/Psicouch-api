@@ -9,7 +9,6 @@ export default class RegisterUsersController {
     public async invoke( { request, response }: HttpContextContract ) {
         
         const data = await request.validate( RegisterUserValidator );
-        console.log( data.role_id );
         const service = new RegisterUserServices(
             data.password, data.email, data.name, data.role_id ? Number( data.role_id ) : null,
         );

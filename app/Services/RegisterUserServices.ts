@@ -34,7 +34,6 @@ export class RegisterUserServices {
             await user.refresh();
             return user;
         } catch (e) {
-            console.log( e );
             return null;
         }
     }
