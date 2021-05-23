@@ -6,7 +6,7 @@ export class LoginServices {
     private readonly password: string;
     private readonly auth: any;
     
-    constructor(email: string, password: string, auth: any ) {
+    constructor( email: string, password: string, auth: any ) {
         this.email = email;
         this.password = password;
         this.auth = auth;

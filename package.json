@@ -2,6 +2,9 @@
   "name": "psicouch-api",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "8.5.0"
+  },
   "scripts": {
     "build": "node ace build --prod",
     "start": "ENV_SILENT=true node build/server.js",
