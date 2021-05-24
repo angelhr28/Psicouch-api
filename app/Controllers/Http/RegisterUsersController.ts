@@ -17,6 +17,8 @@ export default class RegisterUsersController {
             return response.badRequest( { message: ErrorMessageBag.EXIST_REGISTER } );
         }
         
-        return await service.registrer() ?? response.badRequest( { message: ErrorMessageBag.BAD_ATTEMPT } );
+        return await service.registrer() ?
+            response.ok( { message: 'Se registró el usuario correctamente.' } )
+            : response.badRequest( { message: ErrorMessageBag.BAD_ATTEMPT } );
     }
 }
