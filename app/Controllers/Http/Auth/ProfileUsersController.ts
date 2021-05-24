@@ -8,6 +8,9 @@ export default class ProfileUsersController {
         try {
             const profile = auth.toJSON().guards.api.user;
             delete profile.password;
+            delete profile.remember_me_token;
+            delete profile.created_at;
+            delete profile.updated_at;
             return auth.toJSON().guards.api.user;
         } catch (e) {
             return response.unauthorized( { message: Error.BAD_ATTEMPT } );

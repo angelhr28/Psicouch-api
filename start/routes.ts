@@ -1,11 +1,11 @@
 'use strict';
 
 import Route from '@ioc:Adonis/Core/Route';
-import RegisterUsersController from 'App/Controllers/Http/RegisterUsersController';
-import PostLoginsController from 'App/Controllers/Http/PostLoginsController';
-import DeleteLogoutController from 'App/Controllers/Http/DeleteLogoutController';
-import GetValidateTokenController from 'App/Controllers/Http/GetValidateTokenController';
-import ProfileUsersController from 'App/Controllers/Http/ProfileUsersController';
+import RegisterUsersController from 'App/Controllers/Http/Auth/RegisterUsersController';
+import PostLoginsController from 'App/Controllers/Http/Auth/PostLoginsController';
+import DeleteLogoutController from 'App/Controllers/Http/Auth/DeleteLogoutController';
+import GetValidateTokenController from 'App/Controllers/Http/Auth/GetValidateTokenController';
+import ProfileUsersController from 'App/Controllers/Http/Auth/ProfileUsersController';
 
 Route.get( '/', () => {
     return { message: 'hello word' };
