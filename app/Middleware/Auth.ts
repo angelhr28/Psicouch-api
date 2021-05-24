@@ -53,7 +53,7 @@ export default class AuthMiddleware {
          */
         
         throw new AuthenticationException(
-            'Token expirado',
+            'Token incorrecto',
             'E_UNAUTHORIZED_ACCESS',
             guardLastAttempted,
             this.redirectTo,

@@ -16,7 +16,6 @@ export default class SignInValidator {
             trim: true,
         } ),
         
-        remember_me: schema.boolean.optional(),
     } );
     
     public messages = {

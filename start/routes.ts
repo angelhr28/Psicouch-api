@@ -5,6 +5,7 @@ import RegisterUsersController from 'App/Controllers/Http/RegisterUsersControlle
 import PostLoginsController from 'App/Controllers/Http/PostLoginsController';
 import DeleteLogoutController from 'App/Controllers/Http/DeleteLogoutController';
 import GetValidateTokenController from 'App/Controllers/Http/GetValidateTokenController';
+import ProfileUsersController from 'App/Controllers/Http/ProfileUsersController';
 
 Route.get( '/', () => {
     return { message: 'hello word' };
@@ -18,6 +19,7 @@ Route.post( 'auth/login', new PostLoginsController().invoke ).as( 'login' );
 Route.group( () => {
     Route.delete( 'logout', new DeleteLogoutController().invoke );
     Route.get( 'validate', new GetValidateTokenController().invoke );
+    Route.get( 'profile', new ProfileUsersController().invoke );
 } ).prefix( 'auth' ).middleware( 'auth' );
 
 

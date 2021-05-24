@@ -14,7 +14,7 @@ export class LoginServices {
     
     async login() {
         try {
-            return await this.auth.use( 'api' ).attempt( this.email, this.password, { expiresIn: '180mins' } );
+            return await this.auth.use( 'api' ).attempt( this.email, this.password );
         } catch (e) {
             return null;
         }
