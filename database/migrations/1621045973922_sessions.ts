@@ -8,7 +8,7 @@ export default class Sessions extends BaseSchema {
             table.bigIncrements( 'id' );
             table.bigInteger( 'user_id' ).unsigned().references( 'id' ).inTable( 'users' ).onDelete( 'CASCADE' );
             table.bigInteger( 'product_id' ).unsigned().references( 'id' ).inTable( 'products' );
-            table.bigInteger( 'color_id' ).unsigned().references( 'id' ).inTable( 'colours' );
+            table.integer( 'color_id' );
             table.string( 'name', 255 );
             table.date( 'date' ).notNullable();
             table.text( 'note' );

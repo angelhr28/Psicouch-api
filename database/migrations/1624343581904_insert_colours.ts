@@ -2,7 +2,7 @@ import BaseSchema from '@ioc:Adonis/Lucid/Schema';
 import Database from '@ioc:Adonis/Lucid/Database';
 
 export default class InsertColours extends BaseSchema {
-    protected tableName = 'insert_colours';
+    protected tableName = 'colours';
     protected rows = [
         { id: 1, name: 'Lavender', value: '#7986cb' },
         { id: 2, name: 'Sage', value: '#33b679' },

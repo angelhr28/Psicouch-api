@@ -6,7 +6,7 @@ export default class Phrases extends BaseSchema {
     public async up() {
         this.schema.createTable( this.tableName, ( table ) => {
             table.bigIncrements( 'id' );
-            table.bigIncrements( 'name' );
+            table.string( 'name' );
             table.enum( 'status', [ 0, 1 ] ).defaultTo( 1 );
             table.timestamps( true );
         } );
