@@ -9,7 +9,6 @@ export default class Sessions extends BaseSchema {
             table.bigInteger( 'user_id' ).unsigned().references( 'id' ).inTable( 'users' ).onDelete( 'CASCADE' );
             table.bigInteger( 'product_id' ).unsigned().references( 'id' ).inTable( 'products' );
             table.integer( 'color_id' );
-            table.json( 'emails' ).notNullable();
             table.string( 'name', 255 );
             table.date( 'date' ).notNullable();
             table.text( 'note' );
