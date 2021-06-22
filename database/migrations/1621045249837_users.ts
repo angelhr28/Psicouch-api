@@ -7,7 +7,7 @@ export default class UsersSchema extends BaseSchema {
         this.schema.createTable( this.tableName, ( table ) => {
             table.bigIncrements( 'id' ).primary();
             table.bigInteger( 'role_id' ).unsigned().references( 'id' ).inTable( 'roles' );
-            table.json( 'email' ).nullable();
+            table.string( 'email', 100 ).nullable();
             table.string( 'password', 255 ).notNullable();
             table.string( 'name', 255 ).nullable();
             table.string( 'surname', 255 ).nullable();

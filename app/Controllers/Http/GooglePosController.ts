@@ -74,10 +74,10 @@ export default class GooglePosController {
             const calenBusy = response?.data.calendars;
             
             const eventArr = calenBusy?.primary.busy;
-            console.log(eventArr)
-    
+            console.log( eventArr );
+            
             if ( eventArr && eventArr.length !== 0 ) {
-                return `La agenda ya esta llena en esa fecha` ;
+                return `La agenda ya esta llena en esa fecha`;
             }
             
             if ( !eventArr || eventArr.length === 0 ) {
@@ -88,9 +88,9 @@ export default class GooglePosController {
                 console.log( insert.data.hangoutLink );
                 
             }
-    
             
-                return 'Se registro con exito la session.' ;
+            
+            return 'Se registro con exito la session.';
             
             
         } catch (e) {

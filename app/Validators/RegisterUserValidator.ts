@@ -34,6 +34,20 @@ export default class RegisterUserValidator {
             rules.minLength( 5 ),
             rules.maxLength( 20 ),
         ] ),
+    
+        secret_question: schema.string( {
+            trim: true,
+        }, [
+            rules.minLength( 5 ),
+            rules.maxLength( 100 ),
+        ] ),
+    
+        secret_response: schema.string( {
+            trim: true,
+        }, [
+            rules.minLength( 5 ),
+            rules.maxLength( 100 ),
+        ] ),
         
     } );
     
@@ -49,5 +63,13 @@ export default class RegisterUserValidator {
         'password.string': 'Valor incorrecto',
         'password.minLength': 'Ingresa una contraseña con 5 caracteres como mínimo',
         'password.maxLength': 'Ingresa una contraseña con 20 caracteres como maximo',
+        'secret_question.required': 'Ingresa una pregunta secreta',
+        'secret_question.string': 'Valor incorrecto',
+        'secret_question.minLength': 'Ingresa una pregunta secreta con 5 caracteres como mínimo',
+        'secret_question.maxLength': 'Ingresa una pregunta secreta con 100 caracteres como maximo',
+        'secret_response.required': 'Ingresa una respuesta secreta',
+        'secret_response.string': 'Valor incorrecto',
+        'secret_response.minLength': 'Ingresa una respuesta secreta con 5 caracteres como mínimo',
+        'secret_response.maxLength': 'Ingresa una respuesta secreta con 100 caracteres como maximo',
     };
 }

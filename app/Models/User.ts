@@ -47,6 +47,12 @@ export default class User extends BaseModel {
     @column.dateTime( { autoCreate: true, autoUpdate: true } )
     public updatedAt: DateTime;
     
+    @column()
+    public secretResponse: string;
+    
+    @column()
+    public secretQuestion: string;
+    
     @beforeSave()
     public static async hashPassword( user: User ) {
         if ( user.$dirty.password ) {

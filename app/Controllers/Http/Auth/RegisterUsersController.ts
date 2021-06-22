@@ -10,8 +10,7 @@ export default class RegisterUsersController {
         
         const data = await request.validate( RegisterUserValidator );
         const service = new RegisterUserServices(
-            data.password, data.email, data.name, data.role_id ? Number( data.role_id ) : null,
-        );
+            data.password, data.email, data.secret_question, data.secret_response, data.name, data.role_id ? Number( data.role_id ) : null );
         
         if ( await service.isExistUser() ) {
             return response.badRequest( { message: ErrorMessageBag.EXIST_REGISTER } );

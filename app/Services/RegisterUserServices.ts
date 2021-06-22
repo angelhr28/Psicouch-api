@@ -9,10 +9,14 @@ export class RegisterUserServices {
     private readonly name?: string | null;
     private readonly email: string;
     private readonly password: string;
+    private readonly secretQuestion: string;
+    private readonly secretResponse: string;
     
     constructor(
         password: string,
         email: string,
+        secretQuestion: string,
+        secretResponse: string,
         name?: string | null,
         roleId?: Roles | null,
     ) {
@@ -21,6 +25,8 @@ export class RegisterUserServices {
         this.roleId = roleId ? roleId : Roles.CLIENT;
         this.email = email;
         this.password = password;
+        this.secretResponse = secretResponse;
+        this.secretQuestion = secretQuestion;
     }
     
     async registrer() {
@@ -29,6 +35,9 @@ export class RegisterUserServices {
         user.name = this.name;
         user.email = this.email;
         user.password = this.password;
+        user.secretQuestion = this.secretQuestion;
+        user.secretResponse = this.secretResponse;
+        
         try {
             await user.save();
             await user.refresh();
@@ -40,7 +49,7 @@ export class RegisterUserServices {
     }
     
     async isExistUser() {
-        return await User.query().where( 'email', this.email ).first();
+        return await User.findBy( 'email', this.email );
     }
     
 }
