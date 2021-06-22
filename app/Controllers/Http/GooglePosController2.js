@@ -19,7 +19,7 @@ class GooglePosController2 {
 
 // Call the setCredentials method on our oAuth2Client instance and set our refresh token.
         oAuth2Client.setCredentials({
-            refresh_token: "1//04e1rR_isayoYCgYIARAAGAQSNwF-L9IrOxlU3PQU7mZdEh-k1AfoOFMhRTXtL-9j-xjHuOHS2HAu6B4jwiWNpkFjgA0dT3qQUb4"
+            refresh_token: "1//04oapOVXLMYjOCgYIARAAGAQSNwF-L9IrwKIJLuxmUhRIFW9qOpK8fYsfyH6MYvZrg_svIFibbem2Pqi0J5r8l2X_ZSsSFEO7Uc8"
         });
 
 // Create a new calender instance.

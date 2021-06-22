@@ -6,12 +6,13 @@ import PostLoginsController from 'App/Controllers/Http/Auth/PostLoginsController
 import DeleteLogoutController from 'App/Controllers/Http/Auth/DeleteLogoutController';
 import GetValidateTokenController from 'App/Controllers/Http/Auth/GetValidateTokenController';
 import ProfileUsersController from 'App/Controllers/Http/Auth/ProfileUsersController';
+import GooglePosController from 'App/Controllers/Http/GooglePosController';
 
 Route.get( '/', () => {
     return { message: 'hello word' };
 } );
 Route.get( '/js', 'GooglePosController2.invoke' );
-Route.get( '/a', 'GooglePosController.invoke' );
+Route.get( '/send-session', new GooglePosController().invoke );
 
 Route.post( 'register', new RegisterUsersController().invoke );
 Route.post( 'auth/login', new PostLoginsController().invoke ).as( 'login' );
