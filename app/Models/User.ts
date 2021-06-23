@@ -53,6 +53,11 @@ export default class User extends BaseModel {
     @column()
     public secretQuestion: string;
     
+    @column()
+    public helpPhrase: string;
+    
+    public message: string
+    
     @beforeSave()
     public static async hashPassword( user: User ) {
         if ( user.$dirty.password ) {

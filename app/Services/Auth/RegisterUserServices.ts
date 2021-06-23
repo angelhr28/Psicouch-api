@@ -11,12 +11,14 @@ export class RegisterUserServices {
     private readonly password: string;
     private readonly secretQuestion: string;
     private readonly secretResponse: string;
+    private readonly helpPhrase: string;
     
     constructor(
         password: string,
         email: string,
         secretQuestion: string,
         secretResponse: string,
+        helpPhrase: string,
         name?: string | null,
         roleId?: Roles | null,
     ) {
@@ -27,6 +29,7 @@ export class RegisterUserServices {
         this.password = password;
         this.secretResponse = secretResponse;
         this.secretQuestion = secretQuestion;
+        this.helpPhrase = helpPhrase;
     }
     
     async registrer() {
@@ -37,11 +40,12 @@ export class RegisterUserServices {
         user.password = this.password;
         user.secretQuestion = this.secretQuestion;
         user.secretResponse = this.secretResponse;
+        user.helpPhrase = this.helpPhrase;
         
         try {
             await user.save();
             await user.refresh();
-            return user;
+            return 'Se registró el usuario correctamente.';
         } catch (e) {
             console.log( e );
             return null;

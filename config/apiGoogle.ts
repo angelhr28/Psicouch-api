@@ -1,3 +1,5 @@
+'use strict';
+
 import Env from '@ioc:Adonis/Core/Env';
 
 export const clientId: string = Env.get( 'GOGLE_API_CLIENT_ID', '' );

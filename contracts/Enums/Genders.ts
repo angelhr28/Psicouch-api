@@ -1,9 +1,9 @@
 'use strict';
 
-enum Gender {
+enum Genders {
     MALE = 'masculino',
     FEMALE = 'femenino',
     OTHER = 'sin especificar',
 }
 
-export default Gender;
+export default Genders;

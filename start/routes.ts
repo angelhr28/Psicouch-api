@@ -5,8 +5,9 @@ import RegisterUsersController from 'App/Controllers/Http/Auth/RegisterUsersCont
 import PostLoginsController from 'App/Controllers/Http/Auth/PostLoginsController';
 import DeleteLogoutController from 'App/Controllers/Http/Auth/DeleteLogoutController';
 import GetValidateTokenController from 'App/Controllers/Http/Auth/GetValidateTokenController';
-import ProfileUsersController from 'App/Controllers/Http/Auth/ProfileUsersController';
+import ProfileUsersController from 'App/Controllers/Http/Profile/ProfileUsersController';
 import GooglePosController from 'App/Controllers/Http/GooglePosController';
+import RecoveryPasswordsController from 'App/Controllers/Http/RecoveryPassword/RecoveryPasswordsController';
 
 Route.get( '/', () => {
     return { message: 'hello word' };
@@ -16,6 +17,7 @@ Route.get( '/send-session', new GooglePosController().invoke );
 
 Route.post( 'register', new RegisterUsersController().invoke );
 Route.post( 'auth/login', new PostLoginsController().invoke ).as( 'login' );
+Route.post( 'auth/recovery', new RecoveryPasswordsController().invoke );
 
 Route.group( () => {
     Route.delete( 'logout', new DeleteLogoutController().invoke );

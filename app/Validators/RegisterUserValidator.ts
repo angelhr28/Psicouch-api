@@ -25,7 +25,7 @@ export default class RegisterUserValidator {
             trim: true,
         }, [
             rules.email(),
-            rules.maxLength( 255 ),
+            rules.maxLength( 100 ),
         ] ),
         
         password: schema.string( {
@@ -43,6 +43,13 @@ export default class RegisterUserValidator {
         ] ),
     
         secret_response: schema.string( {
+            trim: true,
+        }, [
+            rules.minLength( 5 ),
+            rules.maxLength( 100 ),
+        ] ),
+        
+        help_phrase: schema.string( {
             trim: true,
         }, [
             rules.minLength( 5 ),

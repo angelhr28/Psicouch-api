@@ -4,6 +4,7 @@
  * Feel free to let us know via PR, if you find something broken in this config
  * file.
  */
+'use strict';
 
 import Env from '@ioc:Adonis/Core/Env';
 import { OrmConfig } from '@ioc:Adonis/Lucid/Orm';
@@ -42,9 +43,9 @@ const databaseConfig: DatabaseConfig & { orm: Partial<OrmConfig> } = {
             connection: {
                 host: Env.get( 'MYSQL_HOST', DATABASE_URL.hostname as string ),
                 port: Env.get( 'MYSQL_PORT', DATABASE_URL.port ),
-                user: Env.get( 'MYSQL_USER', DATABASE_URL.username as string),
-                password: Env.get( 'MYSQL_PASSWORD', DATABASE_URL.password as string),
-                database: Env.get( 'MYSQL_DB_NAME', DATABASE_URL.pathname.substr( 1 ) as string),
+                user: Env.get( 'MYSQL_USER', DATABASE_URL.username as string ),
+                password: Env.get( 'MYSQL_PASSWORD', DATABASE_URL.password as string ),
+                database: Env.get( 'MYSQL_DB_NAME', DATABASE_URL.pathname.substr( 1 ) as string ),
             },
             healthCheck: false,
             debug: false,

@@ -16,6 +16,7 @@ export default class Sessions extends BaseSchema {
             table.string( 'end_time', 8 ).notNullable();
             table.text( 'description' ).nullable();
             table.text( 'location' ).nullable();
+            table.text( 'emails' ).nullable();
             table.string( 'link_meet', 100 ).nullable();
             table.enum( 'status', [ 0, 1 ] ).defaultTo( 1 );
             table.timestamps( true );

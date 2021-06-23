@@ -1,9 +1,10 @@
-// import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+'use strict';
 
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import Error from 'Contracts/Enums/ErrorMessageBag';
 
 export default class ProfileUsersController {
+
     public async invoke( { response, auth }: HttpContextContract ) {
         try {
             const profile = auth.toJSON().guards.api.user;
@@ -13,9 +14,10 @@ export default class ProfileUsersController {
             delete profile.updated_at;
             delete profile.secret_question;
             delete profile.secret_response;
+            delete profile.help_phrase;
             return auth.toJSON().guards.api.user;
         } catch (e) {
-            return response.unauthorized( { message: Error.BAD_ATTEMPT } );
+            return response.badRequest( { message: Error.BAD_ATTEMPT } );
         }
     }
 }
