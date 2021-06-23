@@ -2,6 +2,7 @@
 
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import Error from 'Contracts/Enums/ErrorMessageBag';
+import Phrase from 'App/Models/Phrase';
 
 export default class ProfileUsersController {
 
@@ -15,8 +16,20 @@ export default class ProfileUsersController {
             delete profile.secret_question;
             delete profile.secret_response;
             delete profile.help_phrase;
-            return auth.toJSON().guards.api.user;
+
+            const phrases = await Phrase.query()
+                .select( 'name' )
+                .orderByRaw( 'rand()' )
+                .limit( 1 )
+                .first();
+
+            if ( phrases ) {
+                profile.name = phrases.name
+            }
+
+            return profile;
         } catch (e) {
+            console.error( e );
             return response.badRequest( { message: Error.BAD_ATTEMPT } );
         }
     }
