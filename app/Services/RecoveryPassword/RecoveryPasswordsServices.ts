@@ -43,13 +43,14 @@ export class RecoveryPasswordsServices {
     async getVerifySecret() {
 
         const user = await User.query()
-            .select( 'id' )
+            .select('id')
             .where( 'email', this.email )
             .where( 'secret_response', this.secretResponse )
             .first();
 
         return {
             message: user ? 'La respuesta secreta es correcta' : 'La respuesta secreta no es correcta intente nuevamente',
+            body: user ? {} : undefined
         };
 
     }
@@ -60,6 +61,7 @@ export class RecoveryPasswordsServices {
 
         const response = {
             message: user ? 'La contraseña se modificó con exito' : 'La contraseña no se modificó intente nuevamente',
+            body: user ? {} : undefined
         };
 
         if ( user ) {

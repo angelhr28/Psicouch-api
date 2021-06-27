@@ -1,33 +1,12 @@
 'use strict';
 
-export default class SessionRegistersController {
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
+import MeetingRegisterValidator from 'App/Validators/MeetingRegisterValidator';
 
-    // public async store( { request, response }: HttpContextContract ) {
+export default class MeetingRegistersController {
+    // public async store( { request, response, auth }: HttpContextContract ) {
     //
-    //     await request.validate( VisitPostValidator );
-    //     const userId = request.auth.uid;
-    //
-    //     let personId = request.input( 'person_id' );
-    //     let clientId = request.input( 'client_id' );
-    //     const meetingTypeId = request.input( 'meeting_type_id' );
-    //     const subject = request.input( 'subject' );
-    //     const name = request.input( 'name' );
-    //     const phone = request.input( 'phone' );
-    //     const email = request.input( 'email' );
-    //     const note = request.input( 'note' );
-    //     const date = request.input( 'date', new Date().toISOString().slice( 0, 10 ) );
-    //     const address = request.input( 'address' );
-    //     const ubigeoKey = request.input( 'ubigeo_key' );
-    //     const latitude = request.input( 'latitude' );
-    //     const longitude = request.input( 'longitude' );
-    //     const startTime = request.input( 'start_time' );
-    //     const endTime = request.input( 'end_time' );
-    //     // const district = request.input( 'district' );
-    //     const storeKey = request.input( 'store_key' );
-    //     const storeId = request.input( 'store_id' );
-    //
-    //     const businessName = request.input( 'business_name' );
-    //     const ruc = request.input( 'ruc' );
+    //     const data =    await request.validate( MeetingRegisterValidator );
     //
     //     try {
     //         const crossing = new VisitJourneyCrossingService( userId, date, startTime, endTime );
@@ -58,5 +37,4 @@ export default class SessionRegistersController {
     //         return response.badRequest( e.messages ?? { message: e ?? 'Error en la consulta. Intente nuevamente.' } );
     //     }
     // }
-
 }
