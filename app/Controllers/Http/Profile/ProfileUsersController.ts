@@ -6,6 +6,7 @@ import Phrase from 'App/Models/Phrase';
 import Gender from 'App/Models/Gender';
 import Document from 'App/Models/Document';
 import Disease from 'App/Models/Disease';
+import Product from 'App/Models/Product';
 
 export default class ProfileUsersController {
 
@@ -40,7 +41,7 @@ export default class ProfileUsersController {
                 genders: await ProfileUsersController.getGenders(),
                 document_type: await ProfileUsersController.getDocumentType(),
                 diseases_type: await ProfileUsersController.getDiseasesType(),
-
+                products: await ProfileUsersController.getProducts(),
             };
         } catch (e) {
             console.error( e );
@@ -58,6 +59,10 @@ export default class ProfileUsersController {
 
     private static async getDiseasesType() {
         return Disease.query();
+    }
+
+    private static async getProducts() {
+        return Product.query();
     }
 
     private static async getPhrase() {

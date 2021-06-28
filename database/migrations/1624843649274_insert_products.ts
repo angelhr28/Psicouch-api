@@ -1,15 +1,15 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema';
 import Database from '@ioc:Adonis/Lucid/Database';
 
-export default class InsertDocuments extends BaseSchema {
-    protected tableName = 'documents';
+export default class InsertProducts extends BaseSchema {
+    protected tableName = 'products';
+
     protected rows = [
-        {id: 1, name: 'DNI'},
-        {id: 2, name: 'CEX'},
-        {id: 3, name: 'Pasaporte'},
-        {id: 4, name: 'RUC'},
-        {id: 5, name: 'Partida de nacimiento'},
-        {id: 6, name: 'Otros'},
+        { id: 1, name: 'BASIC'   , cant_session: '1' , price: '70' },
+        { id: 2, name: 'REGULAR' , cant_session: '3' , price: '340' },
+        { id: 3, name: 'MEDIUM'  , cant_session: '4' , price: '360' },
+        { id: 4, name: 'PREMIUM' , cant_session: '5' , price: '370' },
+        { id: 5, name: 'LUXURY'  , cant_session: '6' , price: '380' },
     ];
 
     public async up() {

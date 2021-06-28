@@ -12,14 +12,14 @@ export default class MeetingRegistersController {
 
         const service = new MeetingRegisters( profile.id,
             data.name, data.surname, data.age, data.phone, data.document_id,
-            data.document_number, data.emails, data.product_id,data.gender_id, data.description,
+            data.document_number, data.emails, data.product_id, data.gender_id, data.description,
             data.disease, data.date, data.start_time, data.end_time,
         );
 
-        const result = await service.get()
+        const result = await service.get();
 
         return result.status == 200
-        ? response.ok(result.message)
-        : response.ok(result.message)
+            ? response.ok( { message: result.message } )
+            : response.badRequest( { message: result.message } );
     }
 }

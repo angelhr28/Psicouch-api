@@ -1,8 +1,8 @@
-import BaseSchema from '@ioc:Adonis/Lucid/Schema'
+import BaseSchema from '@ioc:Adonis/Lucid/Schema';
 import Database from '@ioc:Adonis/Lucid/Database';
 
 export default class InsertTypeDiseases extends BaseSchema {
-  protected tableName = 'diseases'
+    protected tableName = 'diseases';
 
     protected rows = [
 

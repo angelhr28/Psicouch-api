@@ -31,7 +31,7 @@ export default class Meeting extends BaseModel {
         prepare: ( value: string ) => JSON.stringify( value ),
         consume: ( value: string ) => JSON.parse( value ),
     } )
-    public email: string[];
+    public emails: string[];
 
     @column.dateTime( { autoCreate: true } )
     public createdAt: DateTime;

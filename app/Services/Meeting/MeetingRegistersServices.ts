@@ -69,9 +69,9 @@ export class MeetingRegisters {
             name: this.name,
             surname: this.surname,
             age: this.age,
-            documentId: this.documentId,
-            documentNumber: this.documentNumber,
-            genderId: this.genderId,
+            document_id: this.documentId,
+            document_number: this.documentNumber,
+            gender_id: this.genderId,
             phone: this.phone,
             updated_at: new Date().toISOString().replace( /^([\d-]+)T([\d:]+)(.*)/, `$1 $2` ),
         } );
@@ -84,7 +84,7 @@ export class MeetingRegisters {
         meeting.colorId = 7;
         meeting.name = this.disease;
         meeting.description = this.description;
-        meeting.email = this.email;
+        meeting.emails = this.email;
         await meeting.save();
         await meeting.refresh();
         this.meetingId = meeting.id;
