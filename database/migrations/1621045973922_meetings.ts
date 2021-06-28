@@ -14,6 +14,7 @@ export default class Sessions extends BaseSchema {
             table.text( 'description' ).nullable();
             table.text( 'location' ).nullable();
             table.text( 'emails' ).nullable();
+            table.enum( 'is_paid', [ 0, 1 ] ).defaultTo( 0);
             table.enum( 'status', [ 0, 1 ] ).defaultTo( 1 );
             table.timestamps( true );
         } );

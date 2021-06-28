@@ -8,6 +8,7 @@ import GetValidateTokenController from 'App/Controllers/Http/Auth/GetValidateTok
 import ProfileUsersController from 'App/Controllers/Http/Profile/ProfileUsersController';
 import GooglePosController from 'App/Controllers/Http/GooglePosController';
 import RecoveryPasswordsController from 'App/Controllers/Http/RecoveryPassword/RecoveryPasswordsController';
+import MeetingCrossingsController from 'App/Controllers/Http/Meeting/MeetingCrossingsController';
 
 Route.get( '/', () => {
     return { message: 'hello word' };
@@ -18,6 +19,12 @@ Route.get( '/send-session', new GooglePosController().invoke );
 Route.post( 'register', new RegisterUsersController().invoke );
 Route.post( 'auth/login', new PostLoginsController().invoke ).as( 'login' );
 Route.post( 'auth/recovery', new RecoveryPasswordsController().invoke );
+
+Route.get( '/crossing', new MeetingCrossingsController().invoke );
+
+Route.group( () => {
+    Route.post( '/register-meeting', new RegisterUsersController().invoke );
+} ).prefix( 'meeting' ).middleware( 'auth' );
 
 Route.group( () => {
     Route.delete( 'logout', new DeleteLogoutController().invoke );

@@ -21,8 +21,11 @@ export default class ProfileUsersController {
             delete profile.help_phrase;
             delete profile.status;
 
-            profile.phrase = await ProfileUsersController.getPhrase();
-            profile.combos = await ProfileUsersController.getCombos();
+            profile.phrase   = await ProfileUsersController.getPhrase();
+            profile.combos   = await ProfileUsersController.getCombos();
+            profile.schedule = await ProfileUsersController.getHorario()
+
+            console.log(ProfileUsersController.getHorario())
 
             return profile;
         } catch (e) {
@@ -66,4 +69,16 @@ export default class ProfileUsersController {
 
         return phrase?.name;
     }
+
+    private static async getHorario() {
+        return {
+            Monday    : [ '9:00', '10:00', '11:00', '12:00', '15:00', '16:00', '17:00 pm', '18:00 pm', '19:00 pm', '20:00 pm' ],
+            Tuesday   : [ '9:00', '10:00', '11:00', '12:00', '17:00', '16:00', '19:00 pm', '20:00 pm' ],
+            Wednesday : [ '9:00', '10:00', '11:00', '12:00', '15:00', '16:00', '17:00 pm', '18:00 pm', '19:00 pm', '20:00 pm' ],
+            Thursday  : [ '9:00', '10:00', '11:00', '12:00' ],
+            Friday    : [ '9:00', '10:00', '11:00', '12:00' ],
+            Saturday  : [ '9:00', '10:00', '11:00', '12:00', '15:00 pm', '16:00 pm', '17:00 pm' ],
+        };
+    }
+
 }
