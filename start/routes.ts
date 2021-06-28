@@ -9,6 +9,7 @@ import ProfileUsersController from 'App/Controllers/Http/Profile/ProfileUsersCon
 import GooglePosController from 'App/Controllers/Http/GooglePosController';
 import RecoveryPasswordsController from 'App/Controllers/Http/RecoveryPassword/RecoveryPasswordsController';
 import MeetingCrossingsController from 'App/Controllers/Http/Meeting/MeetingCrossingsController';
+import MeetingRegistersController from 'App/Controllers/Http/Meeting/MeetingRegistersController';
 
 Route.get( '/', () => {
     return { message: 'hello word' };
@@ -23,7 +24,7 @@ Route.post( 'auth/recovery', new RecoveryPasswordsController().invoke );
 Route.get( '/crossing', new MeetingCrossingsController().invoke );
 
 Route.group( () => {
-    Route.post( '/register-meeting', new RegisterUsersController().invoke );
+    Route.post( '/register-meeting', new MeetingRegistersController().invoke );
 } ).prefix( 'meeting' ).middleware( 'auth' );
 
 Route.group( () => {
