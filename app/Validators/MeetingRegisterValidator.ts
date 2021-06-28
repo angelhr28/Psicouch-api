@@ -27,7 +27,7 @@ export default class MeetingRegisterValidator {
             rules.maxLength( 9 ),
         ] ),
 
-        document_id: schema.number([
+        document_id: schema.number( [
             rules.required(),
             rules.unsigned(),
             rules.exists( {
@@ -43,13 +43,13 @@ export default class MeetingRegisterValidator {
             rules.maxLength( 16 ),
         ] ),
 
-        email: schema.array().members(
+        emails: schema.array().members(
             schema.string( {
                 trim: true,
             }, [ rules.email() ] ),
         ),
 
-        product_id: schema.number([
+        product_id: schema.number( [
             rules.required(),
             rules.unsigned(),
             rules.exists( {
@@ -58,7 +58,7 @@ export default class MeetingRegisterValidator {
                 where: { status: '1' },
             } ),
         ] ),
-        gender_id: schema.number([
+        gender_id: schema.number( [
             rules.required(),
             rules.unsigned(),
             rules.exists( {
@@ -74,11 +74,18 @@ export default class MeetingRegisterValidator {
             rules.maxLength( 100 ),
         ] ),
 
-        disease: schema.string( {
-            trim: true,
-        }, [
-            rules.maxLength( 100 ),
-        ] ),
+        disease: schema.string(
+            {
+                trim: true,
+            },
+            [
+                rules.exists( {
+                    table: 'diseases',
+                    column: 'name',
+                    where: { status: '1' },
+                } ),
+            ],
+        ),
 
         date: schema.array().members(
             schema.string( {
