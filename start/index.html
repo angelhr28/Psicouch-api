@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        function myFunction() {
+            const quizUrl = 'http://127.0.0.1:3333/file';
+            fetch(quizUrl, {
+                mode: 'no-cors',
+                method: 'get'
+            }).then(function(response) {
+                console.log(response.type)
+            }).catch(function(err) {
+                console.log(err) // this won't trigger because there is no actual error
+            });
+        }
+    </script>
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <form action="http://127.0.0.1:3333/file" method="post" enctype="multipart/form-data">
+
+    <form action="myFunction()" method="post" enctype="multipart/form-data">
         <input type="file" name="avatar" />
     </form>
 </head>
 <body>
 
+
+
 </body>
 </html>
+
+
+
