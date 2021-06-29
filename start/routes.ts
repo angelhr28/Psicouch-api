@@ -13,14 +13,16 @@ import MeetingRegistersController from 'App/Controllers/Http/Meeting/MeetingRegi
 import MeetingCalendarsController from 'App/Controllers/Http/Meeting/MeetingCalendarsController';
 import GoogleDrivesController from 'App/Controllers/Http/GoogleDrivesController';
 import PaymentRegistersController from 'App/Controllers/Http/Meeting/PaymentRegistersController';
+import Application from '@ioc:Adonis/Core/Application';
 
-Route.post( '/file', new RegisterUsersController().invoke );
-
-// Route.get( '/', ( { request, response }) => {
-//     console.log( __dirname );
-//     response.sendFile()
-// } );
-
+// Route.post('/file', async ({ request }) => {
+//     const coverImage = request.file('cover_image')
+//     console.log('entreeeeeeeee')
+//     console.log(coverImage)
+//     if (coverImage) {
+//         await coverImage.move(Application.tmpPath('uploads'))
+//     }
+// })
 
 Route.get( '/js', 'GooglePosController2.invoke' );
 Route.get( '/send-session', new GoogleCalendarController().invoke );

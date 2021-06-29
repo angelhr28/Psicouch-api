@@ -52,6 +52,7 @@ export class MeetingCalendarServices {
         );
         return calendars.map( s => ( {
                 name: s.name,
+                date: s.date,
                 star_time: s.star_time,
                 end_time: s.end_time,
                 link_meet: s.link_meet,
