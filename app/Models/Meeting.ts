@@ -41,4 +41,7 @@ export default class Meeting extends BaseModel {
 
     @column()
     public status: Status;
+
+    @column()
+    public is_paid: Status;
 }

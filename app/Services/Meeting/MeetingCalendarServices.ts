@@ -44,19 +44,20 @@ export class MeetingCalendarServices {
     }
 
     private getCalendar() {
+
         const calendars = this.rows.filter( s =>
-            s.status_calendar == Status.ACTIVE &&
+            s.status_meeting == Status.ACTIVE &&
             s.status_quote == Status.ACTIVE &&
             s.is_paid == Status.ACTIVE,
         );
-
         return calendars.map( s => ( {
-            name: s.name,
-            star_time: s.star_time,
-            end_time: s.end_time,
-            link_meet: s.link_meet,
-            meeting_id: s.meeting_id,
-        } ) );
+                name: s.name,
+                star_time: s.star_time,
+                end_time: s.end_time,
+                link_meet: s.link_meet,
+                meeting_id: s.meeting_id,
+            } ),
+        );
 
     }
 
@@ -81,7 +82,8 @@ export class MeetingCalendarServices {
         }
         return this.buildResponse();
     }
-
-
-
 }
+
+
+
+

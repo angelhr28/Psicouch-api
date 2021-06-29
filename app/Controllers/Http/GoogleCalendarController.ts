@@ -3,19 +3,20 @@
 import { google } from 'googleapis';
 import Config from '@ioc:Adonis/Core/Config';
 
-export default class GooglePosController {
+export default class GoogleCalendarController {
 
     public async invoke() {
 
         const { OAuth2 } = google.auth;
 
         const oAuth2Client = new OAuth2(
-            Config.get( 'apiGoogle.clientId' ),
-            Config.get( 'apiGoogle.clientSecret' ), Config.get( 'apiGoogle.redirectUri' ),
+            Config.get( 'apiGoogle.cClientId' ),
+            Config.get( 'apiGoogle.cClientSecret' ),
+            Config.get( 'apiGoogle.redirectUri' ),
         );
 
         oAuth2Client.setCredentials( {
-            refresh_token: Config.get( 'apiGoogle.refreshToken' ),
+            refresh_token: Config.get( 'apiGoogle.cRefreshToken' ),
         } );
 
         const calendar = await google.calendar(
