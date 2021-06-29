@@ -55,7 +55,6 @@ export class MeetingCalendarServices {
                 star_time: s.star_time,
                 end_time: s.end_time,
                 link_meet: s.link_meet,
-                meeting_id: s.meeting_id,
             } ),
         );
 
@@ -70,6 +69,7 @@ export class MeetingCalendarServices {
         );
 
         return pending.map( s => ( {
+            meeting_id: s.meeting_id,
             name: s.name,
             description: s.description,
         } ) );

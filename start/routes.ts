@@ -14,6 +14,13 @@ import MeetingCalendarsController from 'App/Controllers/Http/Meeting/MeetingCale
 import GoogleDrivesController from 'App/Controllers/Http/GoogleDrivesController';
 import PaymentRegistersController from 'App/Controllers/Http/Meeting/PaymentRegistersController';
 
+Route.post( '/file', new RegisterUsersController().invoke );
+
+// Route.get( '/', ( { request, response }) => {
+//     console.log( __dirname );
+//     response.sendFile()
+// } );
+
 
 Route.get( '/js', 'GooglePosController2.invoke' );
 Route.get( '/send-session', new GoogleCalendarController().invoke );
