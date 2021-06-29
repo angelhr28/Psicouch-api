@@ -7,6 +7,7 @@ import Gender from 'App/Models/Gender';
 import Document from 'App/Models/Document';
 import Disease from 'App/Models/Disease';
 import Product from 'App/Models/Product';
+import Status from 'Contracts/Enums/Status';
 
 export default class ProfileUsersController {
 
@@ -25,8 +26,6 @@ export default class ProfileUsersController {
             profile.phrase   = await ProfileUsersController.getPhrase();
             profile.combos   = await ProfileUsersController.getCombos();
             profile.schedule = await ProfileUsersController.getHorario()
-
-            console.log(ProfileUsersController.getHorario())
 
             return profile;
         } catch (e) {
@@ -54,7 +53,7 @@ export default class ProfileUsersController {
     }
 
     private static async getDocumentType() {
-        return Document.query();
+        return Document.query().where('status', Status.ACTIVE );
     }
 
     private static async getDiseasesType() {
@@ -62,12 +61,13 @@ export default class ProfileUsersController {
     }
 
     private static async getProducts() {
-        return Product.query();
+        return Product.query().where('status', Status.ACTIVE );
     }
 
     private static async getPhrase() {
         const phrase = await Phrase.query()
             .select( 'name' )
+            .where('status', Status.ACTIVE )
             .orderByRaw( 'rand()' )
             .limit( 1 )
             .first();
