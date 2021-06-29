@@ -22,8 +22,7 @@ export default class MeetingCrossing implements QueryObject {
             where q.date = ?
               and q.start_time = ?
               and q.end_time = ?
-              and m.status = '1'
-              and m.is_paid = '1'
+              and (m.status in ('1', '2') or m.is_paid = '1')
         `;
     }
 

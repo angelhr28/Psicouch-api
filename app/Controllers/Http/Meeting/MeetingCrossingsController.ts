@@ -14,7 +14,7 @@ export default class MeetingCrossingsController {
         const validate = await crossing.isExist();
 
         return validate
-            ? response.badRequest( 'Existe una visita registrada en este rango de horas.' )
+            ? response.badRequest( { message: 'Existe una visita registrada en este rango de horas.' } )
             : response.status( 200 );
     }
 
