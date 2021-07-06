@@ -30,6 +30,10 @@ export default class AuthMiddleware {
          * it can decide the correct response behavior based upon the guard
          * driver
          */
+        console.error('-----------------------------------------------------------------------')
+        console.log(auth)
+        console.error('-----------------------------------------------------------------------')
+    
         let guardLastAttempted: string | undefined;
         
         for (let guard of guards) {
