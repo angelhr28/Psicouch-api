@@ -6,7 +6,12 @@ import { MeetingRegisters } from 'App/Services/Meeting/MeetingRegistersServices'
 
 export default class MeetingRegistersController {
     public async invoke( { request, response, auth }: HttpContextContract ) {
-        
+    
+        console.error('-----------------------------------------------------------------------')
+        console.log(request)
+        console.error('-----------------------------------------------------------------------')
+    
+    
         const data = await request.validate( MeetingRegisterValidator );
         const profile = auth.toJSON().guards.api.user;
         
