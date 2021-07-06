@@ -4,13 +4,13 @@ import { MeetingCalendarServices } from 'App/Services/Meeting/MeetingCalendarSer
 
 export default class MeetingCalendarsController {
     public async invoke( { request, response, auth }: HttpContextContract ) {
-
+        
         const data = await request.validate( MeetingCalendarValidator );
         const profile = auth.toJSON().guards.api.user;
-
-        const crossing = new MeetingCalendarServices( profile.id, profile.role, data.year, data.month );
+        console.log( profile );
+        const crossing = new MeetingCalendarServices( profile.id, profile.role_id, data.year, data.month );
         const meeting = await crossing.get();
-
+        
         return meeting
             ? response.ok( meeting )
             : response.badRequest( { message: 'Sin resultados.' } );
