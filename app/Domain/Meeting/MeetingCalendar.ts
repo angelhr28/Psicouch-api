@@ -29,7 +29,7 @@ export default class MeetingCalendar implements QueryObject {
                    m.is_paid,
                    m.status as status_meeting,
                    q.status as status_quote,
-                   q.link_meet,
+                   'https://meet.google.com/uyx-stdr-azn',
                    q.meeting_id,
                    concat( 'Estado: ', (case when m.status = 0 then 'Finalizada'
                                            when m.status = 1 and m.is_paid = 1 then 'Aprobada'
