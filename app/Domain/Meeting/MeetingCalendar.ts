@@ -12,10 +12,6 @@ export default class MeetingCalendar implements QueryObject {
 
     public constructor( userId: string, roleId: number, year: string, month: string ) {
         
-        console.error('------------------------------------------------------------------')
-        console.log( userId, roleId)
-        console.error('------------------------------------------------------------------')
-        
         this.userId = userId;
         this.roleId = roleId;
         this.year = year;
@@ -47,9 +43,7 @@ export default class MeetingCalendar implements QueryObject {
             where year(q.date) = ?
               and month(q.date) = ?
         `;
-
-        console.log(this.isClient())
-
+        
         if ( this.isClient() ) {
             query += 'and m.user_id = ?';
         }

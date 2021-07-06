@@ -43,7 +43,7 @@ export default class MeetingRegisterValidator {
             rules.maxLength( 16 ),
         ] ),
 
-        emails: schema.array().members(
+        emails: schema.array.optional().members(
             schema.string( {
                 trim: true,
             }, [ rules.email() ] ),
@@ -87,24 +87,25 @@ export default class MeetingRegisterValidator {
             ],
         ),
 
-        date: schema.array().members(
+        date: schema.array.optional().members(
             schema.string( {
                 trim: true,
             } ),
         ),
 
-        start_time: schema.array().members(
+        start_time: schema.array.optional().members(
             schema.string( {
                 trim: true,
             } ),
         ),
 
-        end_time: schema.array().members(
+        end_time: schema.array.optional().members(
             schema.string( {
                 trim: true,
             } ),
         ),
-
+        
+        is_app:schema.boolean.optional()
     } );
     public messages = {};
 }

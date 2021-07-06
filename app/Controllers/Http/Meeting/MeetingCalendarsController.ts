@@ -7,7 +7,6 @@ export default class MeetingCalendarsController {
         
         const data = await request.validate( MeetingCalendarValidator );
         const profile = auth.toJSON().guards.api.user;
-        console.log( profile );
         const crossing = new MeetingCalendarServices( profile.id, profile.role_id, data.year, data.month );
         const meeting = await crossing.get();
         
