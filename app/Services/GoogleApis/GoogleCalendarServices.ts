@@ -106,6 +106,10 @@ export default class GoogleCalendarServices {
                 
                 console.log( insert.data.hangoutLink );
                 
+                await Quote.query().where( 'id', quote.id ).update( {
+                    link: insert.data.hangoutLink,
+                    updated_at: new Date().toISOString().replace( /^([\d-]+)T([\d:]+)(.*)/, `$1 $2` ),
+                } );
             }
             
             return 'Se registro con exito la session.';
