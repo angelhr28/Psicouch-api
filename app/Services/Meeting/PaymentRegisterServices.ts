@@ -19,7 +19,6 @@ export class PaymentRegisterServices {
         try {
             await Meeting.query().where( 'id', this.meetingId ).update( {
                 status: Status.ACTIVE,
-                is_paid: Status.ACTIVE,
                 updated_at: new Date().toISOString().replace( /^([\d-]+)T([\d:]+)(.*)/, `$1 $2` ),
             } );
 

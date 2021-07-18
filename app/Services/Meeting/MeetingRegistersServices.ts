@@ -56,9 +56,6 @@ export class MeetingRegisters {
                 message: 'Se registro correctamente',
             };
         } catch (e) {
-            console.error('-----------------------------------------------------------------------')
-            console.log(e)
-            console.error('-----------------------------------------------------------------------')
             return {
                 status: 400,
                 message: 'Hubo un error' + e,
