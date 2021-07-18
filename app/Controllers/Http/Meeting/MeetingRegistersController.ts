@@ -15,8 +15,6 @@ export default class MeetingRegistersController {
         const data = await request.validate( MeetingRegisterValidator );
         const profile = auth.toJSON().guards.api.user;
         
-        
-        
         if ( data.is_app ) {
             data.emails     = JSON.parse( request.input( 'emails_app' ) );
             data.date       = JSON.parse( request.input( 'date_app' ) );

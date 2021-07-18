@@ -105,7 +105,7 @@ export default class MeetingRegisterValidator {
             } ),
         ),
         
-        is_app:schema.boolean.optional()
+        is_app:schema.string.optional()
     } );
     public messages = {};
 }

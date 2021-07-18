@@ -65,17 +65,13 @@ export default class AuthMiddleware {
      * Handle request
      */
     public async handle( { auth }: HttpContextContract, next: () => Promise<void>, customGuards: ( keyof GuardsList )[] ) {
-        console.error( '-----------------------------------------------------------------------' );
-        console.log( JSON.stringify(auth) );
-        console.error( '-----------------------------------------------------------------------' );
         /**
          * Uses the user defined guards or the default guard mentioned in
          * the config file
          */
         
         const guards = customGuards.length ? customGuards : [ auth.name ];
-        const a = await this.authenticate( auth, guards );
-        const b = await next();
-        console.log(a,b)
+        await this.authenticate( auth, guards );
+        await next();
     }
 }
