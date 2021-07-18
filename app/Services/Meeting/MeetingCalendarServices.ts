@@ -61,7 +61,7 @@ export class MeetingCalendarServices {
 
     }
 
-    private getPending() {
+        private getPending() {
         const pending = this.rows.filter( s =>
             s.status_quote === Status.INACTIVE &&
             s.is_paid === Status.INACTIVE,

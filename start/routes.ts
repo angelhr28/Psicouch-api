@@ -37,7 +37,7 @@ Route.group( () => {
     Route.post( '/register', new MeetingRegistersController().invoke );
     Route.get( '/calendar', new MeetingCalendarsController().invoke );
     Route.post( '/payment', new PaymentRegistersController().invoke );
-} ).prefix( 'meeting' ).middleware( 'auth' );
+} ).prefix( 'meeting' );
 
 Route.group( () => {
     Route.delete( 'logout', new DeleteLogoutController().invoke );
