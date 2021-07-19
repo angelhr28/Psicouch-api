@@ -108,7 +108,7 @@ export default class GoogleCalendarServices {
                 console.log( insert.data.hangoutLink );
                 
                 await Quote.query().where( 'id', quote.id ).update( {
-                    link: insert.data.hangoutLink,
+                    link_meet: insert.data.hangoutLink,
                     updated_at: new Date().toISOString().replace( /^([\d-]+)T([\d:]+)(.*)/, `$1 $2` ),
                 } );
             }
