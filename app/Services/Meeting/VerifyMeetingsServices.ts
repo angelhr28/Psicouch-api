@@ -31,6 +31,8 @@ export class VerifyMeetingsServices {
                 updated_at: new Date().toISOString().replace( /^([\d-]+)T([\d:]+)(.*)/, `$1 $2` ),
             } );
             
+            if ( this.status == Status.INACTIVE ) return { message: 'La cita se rechazo.' };
+            
             const calendar = new GoogleCalendarServices( meeting );
             return await calendar.get();
             
