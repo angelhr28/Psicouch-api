@@ -14,11 +14,12 @@ export default class GoogleCalendarController {
             Config.get( 'apiGoogle.cClientSecret' ),
             Config.get( 'apiGoogle.redirectUri' ),
         );
-
+        
         oAuth2Client.setCredentials( {
+            access_token: Config.get('apiGoogle.cToken'),
             refresh_token: Config.get( 'apiGoogle.cRefreshToken' ),
         } );
-
+        
         const calendar = await google.calendar(
             {
                 version: Config.get( 'apiGoogle.apiVersion' ),
@@ -50,6 +51,7 @@ export default class GoogleCalendarController {
                 },
                 attendees: [
                     { email: 'angelhuamannahui@gmail.com' },
+                    { email: 'angelhuamannahui.job@gmail.com' },
                 ],
                 end: {
                     dateTime: eventEndTime.toISOString(),

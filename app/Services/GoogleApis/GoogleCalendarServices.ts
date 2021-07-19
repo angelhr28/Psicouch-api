@@ -39,6 +39,7 @@ export default class GoogleCalendarServices {
         );
         
         oAuth2Client.setCredentials( {
+            access_token: Config.get('apiGoogle.cToken'),
             refresh_token: Config.get( 'apiGoogle.cRefreshToken' ),
         } );
         
