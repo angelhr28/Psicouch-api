@@ -24,9 +24,8 @@ export default class CommentActionValidator {
             rules.minLength( 5 ),
             rules.maxLength( 100 ),
         ] ),
-    
-        comment_id: schema.number( [
-            rules.required(),
+        
+        comment_id: schema.number.optional( [
             rules.unsigned(),
             rules.exists( {
                 table: 'comments',

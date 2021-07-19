@@ -15,6 +15,7 @@ import GoogleDrivesController from 'App/Controllers/Http/GoogleDrivesController'
 import PaymentRegistersController from 'App/Controllers/Http/Meeting/PaymentRegistersController';
 import VerifyMeetingsController from 'App/Controllers/Http/Meeting/VerifyMeetingsController';
 import GetQuotesController from 'App/Controllers/Http/Meeting/GetQuotesController';
+import CommentActionsController from 'App/Controllers/Http/Meeting/CommentActionsController';
 
 Route.get( '/js', 'GooglePosController2.invoke' );
 Route.get( '/send-session', new GoogleCalendarController().invoke );
@@ -32,6 +33,7 @@ Route.group( () => {
     Route.post( '/payment', new PaymentRegistersController().invoke );
     Route.post( '/verify', new VerifyMeetingsController().invoke );
     Route.get( '/list', new GetQuotesController().invoke );
+    Route.post( '/comment-action', new CommentActionsController().invoke );
 } ).prefix( 'meeting' ).middleware( 'auth' );
 
 Route.group( () => {
