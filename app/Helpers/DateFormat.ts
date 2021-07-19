@@ -48,17 +48,12 @@ export default class DateFormat {
         const pieces = time.split( ':' );
     
         if ( pieces.length < 2 ) return time;
-
-        console.log(date)
-    
+        
         const hour = parseInt( pieces[0], 10 );
         const minute = parseInt( pieces[1], 10 );
-        console.log(hour)
-        console.log(minute)
     
         date.setHours( hour - 5 );
         date.setMinutes( minute );
-        console.log(date)
     
         return date.toISOString()
     }
