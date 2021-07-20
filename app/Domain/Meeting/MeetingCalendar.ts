@@ -44,7 +44,7 @@ export default class MeetingCalendar implements QueryObject {
             from meetings as m
                      inner join quotes q on m.id = q.meeting_id
                      inner join products p on m.product_id = p.id
-                     inner join comments c on q.id = c.quote_id and c.status = '1'
+                     left join comments c on q.id = c.quote_id and c.status = '1'
             where year(q.date) = ?
               and month(q.date) = ?
         `;
