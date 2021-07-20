@@ -4,8 +4,8 @@ import Env from '@ioc:Adonis/Core/Env';
 
 export const cClientId    : string = Env.get( 'CALENDAR_CLIENT_ID', '' );
 export const cClientSecret: string = Env.get( 'CALENDAR_CLIENT_SECRET', '' );
-export const cRefreshToken: string = Env.get( 'CALENDAR_REFRESH_TOKEN', '1//04oapOVXLMYjOCgYIARAAGAQSNwF-L9IrwKIJLuxmUhRIFW9qOpK8fYsfyH6MYvZrg_svIFibbem2Pqi0J5r8l2X_ZSsSFEO7Uc8' );
-export const cToken: string = Env.get( 'CALENDAR_TOKEN', 'ya29.a0ARrdaM-o9N_29I6NO-nnuiRsdbkekYNVv7vIeoxM4wAmc9y00d8ksSJRud4nqFttHikMmuxpdzAwte0RiZqM7xmSgqnGxKW8RSikigbfBLGAJOA3qOHiehtzgFhIEixzIV_9Ii0k7Mh3jSG3RUEPTLRoAIbt' );
+export const cRefreshToken: string = Env.get( 'CALENDAR_REFRESH_TOKEN', '1//04Jc9DM31LjtMCgYIARAAGAQSNwF-L9IrJsuz-k0HNy7wjtCeWxyf34ezj0wBISPiGgU-wZJYnmvBx08nZ2MKqsZ6zdDoe195Wk0' );
+export const cToken: string = Env.get( 'CALENDAR_TOKEN', 'ya29.a0ARrdaM80pz3WwlcSQtivBg_2wO2HK9BQE4gyFVXGxvg6Cjq-0mfKBf1AonCsRg8o4vWOCnJ9HbinLliv973I2fNzKBsNz9TcSypzSYXIjDwT1tQF-yia3RnMs3l4OrYB6wGYgWQN3wkQ41FbsojLB-xUMI6E' );
 
 export const dClientId    : string = Env.get( 'DRIVE_CLIENT_ID', '' );
 export const dClientSecret: string = Env.get( 'DRIVE_CLIENT_SECRET', '' );
