@@ -12,7 +12,7 @@ export default class GetQuote implements QueryObject {
             from meetings as m
                      inner join quotes q on m.id = q.meeting_id
                      inner join products p on m.product_id = p.id
-            where m.is_paid = '1'
+            where q.status = '1'
               and m.status = '1'
             group by m.id
         `;
